@@ -1,0 +1,22 @@
+.ant-card-grid:hover{
+  cursor: pointer;
+}
+.ant-card-grid{
+  border-radius: 20px;
+  background-color: #e6e6e6;
+  width: 190px;
+  margin: 3px 3px 8px 3px;
+}
+
+.ant-card-grid{
+  border-radius: 10px;
+  background: hsla(0,0%,100%,.25) border-box;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset,0 0.5em 1em rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+.ant-card-grid::before{
+  z-index: -1;
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+}
