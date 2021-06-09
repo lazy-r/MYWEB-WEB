@@ -1,4 +1,4 @@
-npm run build
+yarn run build
 docker rm -f myweb_web
 docker rmi -f myweb_web:v1
 docker build -t myweb_web:v1 .
