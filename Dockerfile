@@ -1,17 +1,12 @@
-# 使用node版本11.12.0
-FROM node:11.12.0
+# 基础镜像
+FROM nginx
 
+MAINTAINER cw
 
-# 进入code文件夹，如果没有则会生成，并进入文件夹
-WORKDIR /code
-# 将当前内容 放入code文件夹
-ADD . /code
-
-# 执行指令
-RUN npm install && npm build && npm install -g http-server
-
-# 暴露容器端口 8040
-EXPOSE 8040
-
-# 当执行docker run的时候会执行以下shell 脚本。
-CMD http-server ./build -p 8040
+# 删除原有的default.conf文件
+RUN rm /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/nginx.conf
+# 增加自定义default.conf文件到对应目录
+ADD default.conf /etc/nginx/conf.d/
+# 将dist目录下的文件复制到nginx内的目录下，与上文对应
+COPY dist/ /usr/share/nginx/html/
